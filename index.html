@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>RedMark – הוראות התקנה</title>
+  <!-- Not a public add-in: this page is for the people we send the link to, not for search engines. -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0a0c0f">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&amp;family=IBM+Plex+Sans+Hebrew:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    /* Colours and type from the Simple Cursor download page, so the two read as one family;
+       the layout is a single column of instructions. */
+    :root {
+      --ink: #0a0c0f;
+      --ink-2: #101318;
+      --line: rgba(237, 238, 240, 0.09);
+      --line-strong: rgba(237, 238, 240, 0.18);
+      --text: #edeef0;
+      --muted: #a1a7b0;
+      --faint: #6f7680;
+      --redline: #ff5b2e;
+      --font: "IBM Plex Sans Hebrew", "IBM Plex Sans", system-ui, sans-serif;
+      --mono: "IBM Plex Mono", ui-monospace, monospace;
+      --radius: 12px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--ink); color: var(--text); font-family: var(--font); font-size: 17px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: var(--redline); }
+    :focus-visible { outline: 2px solid var(--redline); outline-offset: 3px; border-radius: 4px; }
+    .wrap { max-width: 760px; margin-inline: auto; padding-inline: 20px; }
+    .mono { font-family: var(--mono); font-size: 0.85em; }
+    bdi { unicode-bidi: isolate; }
+    /* A label the user will see on screen, quoted exactly. */
+    .ui { display: inline-block; padding: 0 8px; border: 1px solid var(--line-strong); border-radius: 6px; background: var(--ink-2); font-weight: 500; white-space: nowrap; }
+
+    .header { border-block-end: 1px solid var(--line); }
+    .header .wrap { display: flex; align-items: baseline; gap: 12px; height: 64px; }
+    .header strong { font-family: "IBM Plex Sans", sans-serif; font-size: 18px; font-weight: 600; }
+    .header span { color: var(--faint); font-size: 15px; }
+
+    h1 { font-size: 2rem; line-height: 1.2; font-weight: 600; margin: 48px 0 8px; }
+    h2 { font-size: 1.3rem; font-weight: 600; margin: 56px 0 16px; padding-block-start: 32px; border-block-start: 1px solid var(--line); }
+    p { margin: 0 0 14px; }
+    .muted { color: var(--muted); }
+
+    .download { margin: 28px 0 0; padding: 20px; border: 1px solid var(--line-strong); border-radius: var(--radius); background: var(--ink-2); display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+    .btn { display: inline-flex; align-items: center; height: 48px; padding-inline: 24px; border-radius: 999px; background: var(--redline); color: var(--ink); font-weight: 600; text-decoration: none; white-space: nowrap; }
+    .btn:hover { background: #ff7650; }
+    .download .meta { color: var(--muted); font-size: 15px; }
+
+    .steps { list-style: none; counter-reset: step; margin: 0; padding: 0; }
+    .steps > li { counter-increment: step; position: relative; padding-inline-start: 48px; padding-block-end: 24px; }
+    .steps > li::before {
+      content: counter(step); position: absolute; inset-inline-start: 0; top: 0;
+      width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--redline); color: var(--redline);
+      display: grid; place-items: center; font-weight: 600; font-size: 15px;
+    }
+    .steps > li strong { display: block; font-weight: 600; }
+    .if { margin: 10px 0 0; padding: 12px 16px; border-inline-start: 3px solid var(--line-strong); background: var(--ink-2); border-radius: 0 8px 8px 0; color: var(--muted); font-size: 16px; }
+    .if b { color: var(--text); font-weight: 500; }
+
+    .qa dt { font-weight: 600; margin-block-start: 20px; }
+    .qa dd { margin: 4px 0 0; color: var(--muted); }
+
+    .footer { margin-block-start: 64px; border-block-start: 1px solid var(--line); padding-block: 24px 40px; color: var(--faint); font-size: 14px; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="wrap"><strong>RedMark</strong><span>הוראות התקנה</span></div>
+  </header>
+
+  <main class="wrap">
+    <h1>התקנת RedMark</h1>
+    <p class="muted">תוסף ל-Revit בגרסאות 2023 עד 2027. ההתקנה היא למשתמש הנוכחי ולא דורשת הרשאות מנהל. מתקינים פעם אחת, ומשם התוסף מתעדכן לבד.</p>
+
+    <div class="download">
+      <!-- the installer is the asset of this repo's latest release, always under the same name -->
+      <a class="btn" href="https://github.com/fleet-360/redmark-download/releases/latest/download/ProAlgorithm-RedMark-Setup.exe">הורדת קובץ ההתקנה</a>
+      <!-- version and size are filled from the GitHub API below; this text is the fallback -->
+      <span class="meta"><bdi data-ver>גרסה 1.0.2</bdi> · <bdi data-size>8MB</bdi> · <bdi class="mono">ProAlgorithm-RedMark-Setup.exe</bdi></span>
+    </div>
+
+    <h2>שלבי ההתקנה</h2>
+    <ol class="steps">
+      <li>
+        <strong>מורידים את קובץ ההתקנה</strong>
+        לוחצים על הכפתור "הורדת קובץ ההתקנה" שלמעלה. הקובץ נשמר בתיקיית ההורדות.
+      </li>
+      <li>
+        <strong>מריצים את הקובץ</strong>
+        לוחצים פעמיים על <bdi class="mono">ProAlgorithm-RedMark-Setup.exe</bdi>.
+        <p class="if"><b>אם מופיע המסך "Windows הגן על המחשב שלך":</b> לוחצים על <span class="ui">מידע נוסף</span> ואז על <span class="ui">הפעל בכל זאת</span>. האזהרה מופיעה כי הקובץ לא חתום דיגיטלית.</p>
+      </li>
+      <li>
+        <strong>מאשרים את ההתקנה</strong>
+        בחלון ההתקנה לוחצים <span class="ui">התקן</span>, ובסיום <span class="ui">סיים</span>. אין מה לבחור: ההתקנה מזהה לבד את גרסאות Revit שמותקנות במחשב, ומוסיפה את התוסף לכל אחת מהן.
+      </li>
+      <li>
+        <strong>פותחים את Revit מחדש</strong>
+        אם Revit היה פתוח בזמן ההתקנה, סוגרים אותו ופותחים שוב. התוסף נטען רק בפתיחה של Revit.
+        <p class="if"><b>אם Revit מציג את החלון <bdi>Security - Unsigned Add-In</bdi>:</b> לוחצים <span class="ui"><bdi>Always Load</bdi></span>. כך Revit טוען את התוסף בלי לשאול שוב.</p>
+      </li>
+      <li>
+        <strong>בודקים שהתוסף נטען</strong>
+        ב-Revit פותחים את הלשונית <span class="ui"><bdi>Pro Algorithm - Surface</bdi></span>. בפאנל <span class="ui">כמויות ורשימות</span> מופיעים הכפתורים <span class="ui">רשימת חלונות</span> ו-<span class="ui">תוצאות אחרונות</span>.
+      </li>
+    </ol>
+
+    <h2>עדכונים</h2>
+    <p>אין צורך להוריד שוב כשיוצאת גרסה חדשה. בכל פתיחה של Revit התוסף בודק ברקע אם יש גרסה חדשה ומוריד אותה. כשהעדכון מוכן מופיעה הודעה, והגרסה החדשה פעילה מהפתיחה הבאה של Revit.</p>
+    <p class="muted">הבדיקה צריכה חיבור לאינטרנט. כדי לראות איזו גרסה מותקנת, מעבירים את העכבר מעל הכפתור רשימת חלונות, או מחפשים בהגדרות Windows תחת "אפליקציות".</p>
+
+    <h2>אם משהו לא עובד</h2>
+    <dl class="qa">
+      <dt>הלשונית או הכפתורים לא מופיעים ב-Revit</dt>
+      <dd>סוגרים את Revit לגמרי ופותחים שוב. אם עדיין לא מופיעים, מריצים שוב את קובץ ההתקנה, ובפתיחת Revit בוחרים <bdi>Always Load</bdi> אם החלון מופיע.</dd>
+
+      <dt>ההתקנה מודיעה שלא נמצאה התקנה של Revit</dt>
+      <dd>ההתקנה מחפשת את Revit 2023 עד 2027 בתיקייה <bdi class="mono">C:\Program Files\Autodesk</bdi>. אם Revit מותקן במקום אחר או בגרסה אחרת, פנו אלינו.</dd>
+
+      <dt>התוסף לא התעדכן</dt>
+      <dd>עדכון נכנס לפעולה רק בפתיחה שאחרי ההורדה, ורק כשיש חיבור לאינטרנט. כדי לעדכן מיד, מורידים ומריצים שוב את קובץ ההתקנה מהעמוד הזה: הוא תמיד בגרסה האחרונה ומתקין מעל הגרסה הקיימת.</dd>
+
+      <dt>אפשר להתקין כש-Revit פתוח?</dt>
+      <dd>כן. ההתקנה לא נוגעת בקבצים ש-Revit משתמש בהם, והגרסה החדשה נטענת בפתיחה הבאה.</dd>
+
+      <dt>איך מסירים את התוסף?</dt>
+      <dd>בהגדרות Windows פותחים "אפליקציות", בוחרים ב"פרו אלגוריתם - כמויות ורשימות" ולוחצים "הסר התקנה".</dd>
+    </dl>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">RedMark · <bdi data-ver>גרסה 1.0.2</bdi></div>
+  </footer>
+
+  <script>
+    // Version and installer size from the latest release, so publishing a version never needs
+    // an edit here. api.github.com answers cross-origin; the release download URLs do not.
+    // On any failure (offline, rate limit of 60/hour per address) the static text stays.
+    fetch('https://api.github.com/repos/fleet-360/redmark-download/releases/latest')
+      .then(response => response.ok ? response.json() : Promise.reject(response.status))
+      .then(release => {
+        const version = release.tag_name.replace(/^v/, '');
+        document.querySelectorAll('[data-ver]').forEach(el => { el.textContent = 'גרסה ' + version; });
+        const setup = release.assets.find(asset => asset.name === 'ProAlgorithm-RedMark-Setup.exe');
+        if (setup) {
+          document.querySelectorAll('[data-size]').forEach(el => { el.textContent = Math.round(setup.size / 1048576) + 'MB'; });
+        }
+      })
+      .catch(() => { /* the fallback text already names the last version written into this file */ });
+  </script>
+</body>
+</html>
