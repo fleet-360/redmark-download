@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>RedMark – הוראות התקנה</title>
+  <title>Pro Algorithm – הוראות התקנה</title>
   <!-- Not a public add-in: this page is for the people we send the link to, not for search engines. -->
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#0a0c0f">
@@ -71,18 +71,18 @@
 </head>
 <body>
   <header class="header">
-    <div class="wrap"><strong>RedMark</strong><span>הוראות התקנה</span></div>
+    <div class="wrap"><strong>Pro Algorithm</strong><span>הוראות התקנה</span></div>
   </header>
 
   <main class="wrap">
-    <h1>התקנת RedMark</h1>
+    <h1>התקנת התוסף Pro Algorithm</h1>
     <p class="muted">תוסף ל-Revit בגרסאות 2023 עד 2027. ההתקנה היא למשתמש הנוכחי ולא דורשת הרשאות מנהל. מתקינים פעם אחת, ומשם התוסף מתעדכן לבד.</p>
 
     <div class="download">
       <!-- the installer is the asset of this repo's latest release, always under the same name -->
-      <a class="btn" href="https://github.com/fleet-360/redmark-download/releases/latest/download/ProAlgorithm-RedMark-Setup.exe">הורדת קובץ ההתקנה</a>
+      <a class="btn" href="https://github.com/fleet-360/redmark-download/releases/latest/download/ProAlgorithm-Setup.exe">הורדת קובץ ההתקנה</a>
       <!-- version and size are filled from the GitHub API below; this text is the fallback -->
-      <span class="meta"><bdi data-ver>גרסה 1.0.2</bdi> · <bdi data-size>8MB</bdi> · <bdi class="mono">ProAlgorithm-RedMark-Setup.exe</bdi></span>
+      <span class="meta"><bdi data-ver>גרסה 1.0.2</bdi> · <bdi data-size>8MB</bdi> · <bdi class="mono">ProAlgorithm-Setup.exe</bdi></span>
     </div>
 
     <h2>שלבי ההתקנה</h2>
@@ -93,7 +93,7 @@
       </li>
       <li>
         <strong>מריצים את הקובץ</strong>
-        לוחצים פעמיים על <bdi class="mono">ProAlgorithm-RedMark-Setup.exe</bdi>.
+        לוחצים פעמיים על <bdi class="mono">ProAlgorithm-Setup.exe</bdi>.
         <p class="if"><b>אם מופיע המסך "Windows הגן על המחשב שלך":</b> לוחצים על <span class="ui">מידע נוסף</span> ואז על <span class="ui">הפעל בכל זאת</span>. האזהרה מופיעה כי הקובץ לא חתום דיגיטלית.</p>
       </li>
       <li>
@@ -135,7 +135,7 @@
   </main>
 
   <footer class="footer">
-    <div class="wrap">RedMark · <bdi data-ver>גרסה 1.0.2</bdi></div>
+    <div class="wrap">Pro Algorithm · <bdi data-ver>גרסה 1.0.2</bdi></div>
   </footer>
 
   <script>
@@ -147,7 +147,7 @@
       .then(release => {
         const version = release.tag_name.replace(/^v/, '');
         document.querySelectorAll('[data-ver]').forEach(el => { el.textContent = 'גרסה ' + version; });
-        const setup = release.assets.find(asset => asset.name === 'ProAlgorithm-RedMark-Setup.exe');
+        const setup = release.assets.find(asset => asset.name === 'ProAlgorithm-Setup.exe');
         if (setup) {
           document.querySelectorAll('[data-size]').forEach(el => { el.textContent = Math.round(setup.size / 1048576) + 'MB'; });
         }
