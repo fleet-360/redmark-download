@@ -80,9 +80,9 @@
 
     <div class="download">
       <!-- the installer is the asset of this repo's latest release, always under the same name -->
-      <a class="btn" href="https://github.com/fleet-360/redmark-download/releases/latest/download/ProAlgorithm-Setup.exe">הורדת קובץ ההתקנה</a>
+      <a class="btn" href="https://github.com/fleet-360/redmark-download/releases/latest/download/ProAlgorithm-Lists-Setup.exe">הורדת קובץ ההתקנה</a>
       <!-- version and size are filled from the GitHub API below; this text is the fallback -->
-      <span class="meta"><bdi data-ver>גרסה 1.0.2</bdi> · <bdi data-size>8MB</bdi> · <bdi class="mono">ProAlgorithm-Setup.exe</bdi></span>
+      <span class="meta"><bdi data-ver>גרסה 1.0.2</bdi> · <bdi data-size>8MB</bdi> · <bdi class="mono">ProAlgorithm-Lists-Setup.exe</bdi></span>
     </div>
 
     <h2>שלבי ההתקנה</h2>
@@ -93,7 +93,7 @@
       </li>
       <li>
         <strong>מריצים את הקובץ</strong>
-        לוחצים פעמיים על <bdi class="mono">ProAlgorithm-Setup.exe</bdi>.
+        לוחצים פעמיים על <bdi class="mono">ProAlgorithm-Lists-Setup.exe</bdi>.
         <p class="if"><b>אם מופיע המסך "Windows הגן על המחשב שלך":</b> לוחצים על <span class="ui">מידע נוסף</span> ואז על <span class="ui">הפעל בכל זאת</span>. האזהרה מופיעה כי הקובץ לא חתום דיגיטלית.</p>
       </li>
       <li>
@@ -147,7 +147,7 @@
       .then(release => {
         const version = release.tag_name.replace(/^v/, '');
         document.querySelectorAll('[data-ver]').forEach(el => { el.textContent = 'גרסה ' + version; });
-        const setup = release.assets.find(asset => asset.name === 'ProAlgorithm-Setup.exe');
+        const setup = release.assets.find(asset => asset.name === 'ProAlgorithm-Lists-Setup.exe');
         if (setup) {
           document.querySelectorAll('[data-size]').forEach(el => { el.textContent = Math.round(setup.size / 1048576) + 'MB'; });
         }

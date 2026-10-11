@@ -4,7 +4,7 @@
 
 - `index.html`: דף הוראות ההתקנה, מוגש ב-GitHub Pages מהתיקייה הראשית, בלי שלב בנייה. הוא `noindex` — לא תוסף ציבורי, הקישור נשלח למי שצריך אותו.
 - הגרסאות הן GitHub Releases. כפתור ההורדה מצביע תמיד על האחרונה:
-  `releases/latest/download/ProAlgorithm-Setup.exe`
+  `releases/latest/download/ProAlgorithm-Lists-Setup.exe`
 - התוסף המותקן קורא את `releases/latest/download/latest.json` בכל פתיחה של Revit ומתעדכן לבד.
 
 ## פרסום גרסה
